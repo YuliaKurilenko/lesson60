@@ -22,7 +22,8 @@ def profile_asyncio():
     tracemalloc.start()
 
     start_time = time.time()
-    asyncio.run(async_main(urls))
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(async_main(urls))
     end_time = time.time()
 
     process = psutil.Process()
